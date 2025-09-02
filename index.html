@@ -1,71 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Baiheng Chen — Personal Website</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      margin: 0;
-      padding: 0;
-      background: #f7f9fc;
-      color: #222;
-    }
-    .container {
-      max-width: 800px;
-      margin: auto;
-      padding: 20px;
-    }
-    h2 {
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 6px;
-      margin-top: 40px;
-    }
-    .edu-item {
-      margin-bottom: 18px;
-    }
-    .photo {
-      text-align: center;
-      margin-top: 30px;
-    }
-    .photo img {
-      max-width: 300px;
-      border-radius: 12px;
-      border: 2px solid #ccc;
+    body{font-family:Arial,sans-serif;line-height:1.6;margin:0;background:#f7f9fc;color:#222}
+    .container{max-width:960px;margin:auto;padding:28px 20px}
+    h2{border-bottom:2px solid #ddd;padding-bottom:6px;margin:12px 0 22px}
+    .row{display:flex;align-items:center;gap:22px;margin:28px 0;padding:16px;border-radius:14px;background:#fff;box-shadow:0 8px 24px rgba(16,24,40,.06)}
+    .left{flex:1 1 60%}
+    .right{flex:1 1 40%;text-align:right}
+    .edu-item h3{margin:.2rem 0 .35rem}
+    .muted{color:#556}
+    /* images */
+    .portrait{max-width:260px;width:100%;border-radius:12px;border:2px solid #ddd;object-fit:cover}
+    .logo{max-width:220px;width:100%;height:auto;object-fit:contain;filter:drop-shadow(0 4px 10px rgba(0,0,0,.08))}
+    /* responsive */
+    @media (max-width:760px){
+      .row{flex-direction:column;text-align:left}
+      .right{text-align:center}
+      .portrait{max-width:220px}
+      .logo{max-width:180px}
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <!-- Section 1: Education -->
-    <section id="education">
-      <h2>Education</h2>
-      <div class="edu-item">
-        <h3>Ph.D. in Statistics</h3>
-        <p>University of Wisconsin–Madison, 2024–Present</p>
-        <p>Research focus: Gaussian Processes, physics-informed modeling.</p>
-      </div>
-      <div class="edu-item">
-        <h3>M.S. in Statistics</h3>
-        <p>University of Wisconsin–Madison, 2022–2024</p>
-      </div>
-      <div class="edu-item">
-        <h3>B.S. in Mathematics</h3>
-        <p>Nankai University, 2019–2022</p>
-        <p>Minor in Computer Science.</p>
-      </div>
-    </section>
+    <h2>Education</h2>
 
-    <!-- Section 2: Photo -->
-    <section id="photo">
-      <h2>Photo</h2>
-      <div class="photo">
-        <!-- ⚠️ Replace the path below with a relative path after uploading photo to your repo -->
-        <img src="photo\Baiheng.png" alt="Baiheng Chen Photo">
+    <!-- Ph.D. row: left text, right portrait -->
+    <div class="row">
+      <div class="left edu-item">
+        <h3>Ph.D. in Statistics</h3>
+        <p>University of Wisconsin–Madison <span class="muted">· 2024–Present</span></p>
+        <p class="muted">Research focus: Gaussian Processes, physics-informed/physics-reinforced modeling for metasurface/DOE.</p>
       </div>
-    </section>
-  </div>
-</body>
-</html>
+      <div class="right">
+        <!-- 请确保图片位于仓库 photo/ 目录；路径使用正斜杠 / -->
+        <img class="portrait" src="photo/Baiheng.png" alt="Baiheng Chen Portrait">
+      </div>
+    </div>
+
+    <!-- Master row: left text, right UW logo -->
+    <div class="row">
+      <div class="left edu-item">
+        <h3>M.S. in Statistics</h3>
+        <p>University of Wisconsin–Madison <span class="muted">· 2022–2024</span></p>
+        <p class="muted">Thesis: Random Fourier Features GP for spectral response prediction.</p>
+      </div>
+      <div class="right">
+        <img class="logo" src="photo/UW-STAT.png" alt="UW–Madison Statistics Logo">
+      </div>
+    </div>
+
+    <!-- Bachelor row: left text, right NKU logo -->
+    <div class="row">
+      <div class="left edu-item">
+        <h3>B.S. in Mathematics</h3>
+        <p>Nankai University <span class
