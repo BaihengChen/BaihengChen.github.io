@@ -5,70 +5,133 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Baiheng Chen — Personal Website</title>
   <style>
-    body{font-family:Arial,sans-serif;line-height:1.6;margin:0;background:#f7f9fc;color:#222}
-    .container{max-width:960px;margin:auto;padding:28px 20px}
-    h2{border-bottom:2px solid #ddd;padding-bottom:6px;margin:12px 0 22px}
-    .row{display:flex;align-items:center;gap:22px;margin:28px 0;padding:16px;border-radius:14px;background:#fff;box-shadow:0 8px 24px rgba(16,24,40,.06)}
-    .left{flex:1 1 60%}
-    .right{flex:1 1 40%;text-align:right}
-    .edu-item h3{margin:.2rem 0 .35rem}
-    .muted{color:#556}
-    /* images */
-    .portrait{max-width:260px;width:100%;border-radius:12px;border:2px solid #ddd;object-fit:cover}
-    .logo{max-width:220px;width:100%;height:auto;object-fit:contain;filter:drop-shadow(0 4px 10px rgba(0,0,0,.08))}
-    /* Master & Bachelor并排布局 */
-    .dual-row{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:18px;
-      margin:28px 0;
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      background: #f7f9fc;
+      color: #222;
     }
-    .edu-bg{
-      position:relative;
-      min-height:220px;
-      border-radius:14px;
-      overflow:hidden;
-      box-shadow:0 8px 24px rgba(16,24,40,.06);
+    .container {
+      max-width: 960px;
+      margin: auto;
+      padding: 28px 20px;
+    }
+    h2 {
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 6px;
+      margin: 12px 0 22px;
+    }
+    .row {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      margin: 28px 0;
+      padding: 16px;
+      border-radius: 14px;
+      background: #fff;
+      box-shadow: 0 8px 24px rgba(16, 24, 40, 0.06);
+    }
+    .left {
+      flex: 1 1 60%;
+    }
+    .right {
+      flex: 1 1 40%;
+      text-align: right;
+    }
+    .edu-item h3 {
+      margin: 0.2rem 0 0.35rem;
+    }
+    .muted {
+      color: #556;
+    }
+    /* images */
+    .portrait {
+      max-width: 260px;
+      width: 100%;
+      border-radius: 12px;
+      border: 2px solid #ddd;
+      object-fit: cover;
+    }
+    .logo {
+      max-width: 220px;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.08));
+    }
+    /* Master & Bachelor 并排布局 */
+    .dual-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin: 28px 0;
+    }
+    .edu-bg {
+      position: relative;
+      min-height: 220px;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(16, 24, 40, 0.06);
     }
     .edu-bg::before {
-    content:"";
-    position:absolute; inset:0;
-    background-size:contain;
-    background-repeat:no-repeat;
-    background-position:center;
-    opacity:0.25;
-    filter:grayscale(10%);  
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 0.25; /* 调整校徽清晰度 */
+      filter: grayscale(10%);
     }
     .edu-content {
-    position:relative; z-index:1;
-    background:rgba(255,255,255,.92); 
-    backdrop-filter:saturate(110%) blur(2px);
-    margin:16px; padding:18px;
-    border-radius:12px;
+      position: relative;
+      z-index: 1;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: saturate(110%) blur(2px);
+      margin: 16px;
+      padding: 18px;
+      border-radius: 12px;
     }
-    .bg-uw::before{ background-image:url("photo/UW-STAT.png"); }
-    .bg-nku::before{ background-image:url("photo/NKU.jpg"); }
+    .bg-uw::before {
+      background-image: url("photo/UW-STAT.png");
+    }
+    .bg-nku::before {
+      background-image: url("photo/NKU.jpg");
+    }
     /* responsive */
-    @media (max-width:760px){
-      .row{flex-direction:column;text-align:left}
-      .right{text-align:center}
-      .portrait{max-width:220px}
-      .logo{max-width:180px}
-      .dual-row{grid-template-columns:1fr;}
+    @media (max-width: 760px) {
+      .row {
+        flex-direction: column;
+        text-align: left;
+      }
+      .right {
+        text-align: center;
+      }
+      .portrait {
+        max-width: 220px;
+      }
+      .logo {
+        max-width: 180px;
+      }
+      .dual-row {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container">
+    <!-- Education Section -->
     <h2>Education</h2>
 
-    <!-- Ph.D. row: left text, right portrait -->
+    <!-- Ph.D. row -->
     <div class="row">
       <div class="left edu-item">
         <h3>Ph.D. in Statistics</h3>
         <p>University of Wisconsin–Madison <span class="muted">· 2024–Present</span></p>
         <p>Instructor: Peter Chien, Benjamin Lengerich</p>
-        <p class="muted">Research focus: Machine Learning in Clinc Record, Experiment Design, Multi-Arm Bandit.</p>
+        <p class="muted">Research focus: Machine Learning in Clinic Record, Experiment Design, Multi-Arm Bandit.</p>
       </div>
       <div class="right">
         <img class="portrait" src="photo/Baiheng.png" alt="Baiheng Chen Portrait">
@@ -99,7 +162,8 @@
         </div>
       </section>
     </div>
-        <!-- Fun Fact Section -->
+
+    <!-- Fun Fact Section -->
     <h2>Fun Fact about Me</h2>
     <div class="row">
       <div class="left edu-item">
@@ -111,8 +175,6 @@
         </ul>
       </div>
     </div>
-
   </div>
-  
 </body>
 </html>
