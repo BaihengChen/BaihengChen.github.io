@@ -1,217 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Baiheng Chen — Personal Site</title>
-
-  <!-- Google Font (feel free to change) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Baiheng Chen — Personal Website</title>
   <style>
-    :root{
-      --bg:#0b0c10; --card:#111317; --text:#eaeef2; --muted:#9aa4af; --brand:#68d391;
-      --chip:#1a1f27; --link:#74c0fc; --shadow:0 10px 30px rgba(0,0,0,.25);
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background: #f7f9fc;
+      color: #222;
     }
-    :root.light{
-      --bg:#f7f9fc; --card:#ffffff; --text:#171a1f; --muted:#5b6570; --brand:#2ea043;
-      --chip:#f0f3f7; --link:#0a66c2; --shadow:0 10px 30px rgba(16,24,40,.08);
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
     }
-    html{scroll-behavior:smooth;}
-    body{
-      margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;
-      background:var(--bg); color:var(--text);
+    h2 {
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 6px;
+      margin-top: 40px;
     }
-    .wrap{max-width:1050px; margin:auto; padding:28px 20px 80px;}
-    header{
-      display:flex; align-items:center; gap:22px; padding:18px 0 8px;
-      position:sticky; top:0; background:linear-gradient(to bottom,var(--bg) 85%,transparent);
-      z-index:10;
+    .edu-item {
+      margin-bottom: 18px;
     }
-    .brand{font-weight:800; letter-spacing:.2px; font-size:1.05rem}
-    nav{margin-left:auto; display:flex; gap:16px; align-items:center;}
-    nav a{color:var(--muted); text-decoration:none; font-weight:600}
-    nav a:hover{color:var(--text)}
-    .toggle{border:1px solid var(--muted); padding:6px 10px; border-radius:10px; cursor:pointer; background:transparent; color:var(--muted)}
-    .hero{
-      display:grid; grid-template-columns:160px 1fr; gap:24px; align-items:center; margin-top:8px;
-      padding:22px; background:var(--card); border-radius:18px; box-shadow:var(--shadow);
+    .photo {
+      text-align: center;
+      margin-top: 30px;
     }
-    .avatar{
-      width:160px; height:160px; border-radius:18px; object-fit:cover; border:3px solid rgba(255,255,255,.07);
-    }
-    .title{font-size:1.9rem; margin:0 0 6px; font-weight:800}
-    .subtitle{margin:6px 0 14px; color:var(--muted)}
-    .chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px}
-    .chip{background:var(--chip); color:var(--muted); padding:6px 10px; border-radius:999px; font-size:.85rem}
-    .btn{
-      display:inline-block; margin-top:14px; background:var(--brand); color:#0b0c10; font-weight:800;
-      padding:10px 14px; border-radius:12px; text-decoration:none;
-    }
-    section{margin-top:36px}
-    h2{margin:0 0 14px; font-size:1.35rem}
-    .grid{
-      display:grid; gap:16px; grid-template-columns:repeat(12,1fr);
-    }
-    .card{
-      background:var(--card); border-radius:16px; padding:18px; box-shadow:var(--shadow);
-    }
-    /* Education Timeline */
-    .timeline{position:relative; padding-left:28px}
-    .timeline:before{
-      content:""; position:absolute; left:10px; top:0; bottom:0; width:2px; background:linear-gradient(var(--brand),transparent);
-      opacity:.6;
-    }
-    .t-item{position:relative; margin:16px 0}
-    .t-item:before{
-      content:""; position:absolute; left:-1px; top:6px; width:10px; height:10px; background:var(--brand); border-radius:50%;
-      box-shadow:0 0 0 3px rgba(104,211,145,.18);
-    }
-    .t-role{font-weight:700}
-    .muted{color:var(--muted)}
-    /* Projects */
-    .proj{grid-column:span 6}
-    .proj h3{margin:.2rem 0 .4rem}
-    .tags{display:flex; gap:6px; flex-wrap:wrap; margin-top:6px}
-    .tag{background:var(--chip); color:var(--muted); padding:4px 8px; border-radius:999px; font-size:.78rem}
-    .progress{height:8px; background:#20242b; border-radius:999px; overflow:hidden; margin-top:10px}
-    .progress>span{display:block; height:100%; background:var(--brand); width:62%}
-    /* Hobbies */
-    .hobbies{display:flex; gap:10px; flex-wrap:wrap}
-    .hob{background:var(--chip); padding:10px 12px; border-radius:12px}
-    /* Footer */
-    footer{margin-top:42px; color:var(--muted); text-align:center}
-    /* Responsive */
-    @media (max-width:860px){
-      .hero{grid-template-columns:1fr}
-      .avatar{justify-self:center}
-      .proj{grid-column:span 12}
+    .photo img {
+      max-width: 300px;
+      border-radius: 12px;
+      border: 2px solid #ccc;
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="brand">Baiheng Chen</div>
-      <nav>
-        <a href="#about">About</a>
-        <a href="#edu">Education</a>
-        <a href="#projects">Projects</a>
-        <a href="#hobbies">Hobbies</a>
-        <a href="#contact">Contact</a>
-        <button class="toggle" id="modeToggle" title="Toggle dark/light">☾/☀</button>
-      </nav>
-    </header>
-
-    <!-- HERO -->
-    <section class="hero" id="about">
-      <img class="avatar" src="assets/img/staff/Baiheng.png" alt="Portrait of Baiheng Chen"><!-- 🔧 replace with your path -->
-      <div>
-        <h1 class="title">Statistician & ML Researcher</h1>
-        <p class="subtitle">
-          Second-year Ph.D. student in Statistics at UW–Madison.  
-          I build data-efficient models for optics—especially physics-reinforced Gaussian processes
-          and inverse design for metasurface/DOE.
-        </p>
-        <div class="chips">
-          <span class="chip">Gaussian Process</span><span class="chip">RFF</span>
-          <span class="chip">Physics-informed ML</span><span class="chip">Metasurface/DOE</span>
-          <span class="chip">Python · JAX · PyTorch</span>
-        </div>
-        <a class="btn" href="docs/CV_BaihengChen.pdf" target="_blank" rel="noopener">Download CV</a><!-- 🔧 replace -->
-      </div>
-    </section>
-
-    <!-- EDUCATION -->
-    <section id="edu">
+  <div class="container">
+    <!-- Section 1: Education -->
+    <section id="education">
       <h2>Education</h2>
-      <div class="card timeline">
-        <div class="t-item">
-          <div class="t-role">Ph.D. in Statistics — University of Wisconsin–Madison <span class="muted">2024–present</span></div>
-          <div class="muted">Adviser: <strong>Benjamin Lengerich</strong> · Research: functional GP, physics-reinforced modeling for optical metasurfaces.</div>
-        </div>
-        <div class="t-item">
-          <div class="t-role">M.S. in Statistics — <span class="muted">Your University</span> <span class="muted">2022–2024</span></div>
-          <div class="muted">Thesis: Random Fourier Features GP for spectral response prediction.</div>
-        </div>
-        <div class="t-item">
-          <div class="t-role">B.S. in Mathematics — <span class="muted">Your University</span> <span class="muted">2018–2022</span></div>
-          <div class="muted">Minor in Computer Science.</div>
-        </div>
+      <div class="edu-item">
+        <h3>Ph.D. in Statistics</h3>
+        <p>University of Wisconsin–Madison, 2024–Present</p>
+        <p>Research focus: Gaussian Processes, physics-informed modeling.</p>
+      </div>
+      <div class="edu-item">
+        <h3>M.S. in Statistics</h3>
+        <p>University of Wisconsin–Madison, 2022–2024</p>
+      </div>
+      <div class="edu-item">
+        <h3>B.S. in Mathematics</h3>
+        <p>Nankai University, 2019–2022</p>
+        <p>Minor in Computer Science.</p>
       </div>
     </section>
 
-    <!-- PROJECTS -->
-    <section id="projects">
-      <h2>Ongoing Projects</h2>
-      <div class="grid">
-        <article class="card proj">
-          <div class="muted">#01</div>
-          <h3>Physics-Reinforced RFF-GP for Functional Responses</h3>
-          <p>GP with custom spectral features and energy-conservation priors to predict full spectra/PSF for metasurface/DOE design.</p>
-          <div class="tags">
-            <span class="tag">GP</span><span class="tag">RFF</span><span class="tag">Optics</span><span class="tag">Causality/KK</span>
-          </div>
-          <div class="progress" title="62%">
-            <span style="width:62%"></span>
-          </div>
-          <p class="muted">Target: preprint in Fall 2025.</p>
-        </article>
-
-        <article class="card proj">
-          <div class="muted">#02</div>
-          <h3>Inverse Design for Metasurface Imaging</h3>
-          <p>Hybrid differentiable RCWA + neural surrogate for achromatic metalens co-designed with digital restoration.</p>
-          <div class="tags">
-            <span class="tag">RCWA</span><span class="tag">DL</span><span class="tag">Metalens</span><span class="tag">Imaging</span>
-          </div>
-          <div class="progress" title="45%">
-            <span style="width:45%"></span>
-          </div>
-          <p class="muted">Target: demo with Sony-style sensor stack.</p>
-        </article>
+    <!-- Section 2: Photo -->
+    <section id="photo">
+      <h2>Photo</h2>
+      <div class="photo">
+        <!-- ⚠️ Replace the path below with a relative path after uploading photo to your repo -->
+        <img src="assets/img/Baiheng.png" alt="Baiheng Chen Photo">
       </div>
     </section>
-
-    <!-- HOBBIES -->
-    <section id="hobbies">
-      <h2>Hobbies</h2>
-      <div class="card hobbies">
-        <div class="hob">Trail running 🏃‍♂️</div>
-        <div class="hob">Cooking Sichuan food 🔥</div>
-        <div class="hob">Photography 📷</div>
-        <div class="hob">Saxophone 🎷</div>
-        <div class="hob">Board games 🎲</div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact">
-      <h2>Contact</h2>
-      <div class="card">
-        <p>Email: <a href="mailto:bchen342@wisc.edu" style="color:var(--link)">bchen342@wisc.edu</a> <!-- 🔧 replace --></p>
-        <p>
-          <a href="https://github.com/BaihengChen" style="color:var(--link)" target="_blank">GitHub</a> ·
-          <a href="https://www.linkedin.com/in/your-link" style="color:var(--link)" target="_blank">LinkedIn</a> ·
-          <a href="https://scholar.google.com/citations?user=YOURID" style="color:var(--link)" target="_blank">Google Scholar</a>
-        </p>
-      </div>
-    </section>
-
-    <footer>© 2025 Baiheng Chen · Madison, WI</footer>
   </div>
-
-  <script>
-    // Dark/light mode
-    const root = document.documentElement;
-    const key = "pref-theme";
-    const saved = localStorage.getItem(key);
-    if(saved){ root.className = saved; }
-    document.getElementById('modeToggle').onclick = () => {
-      root.className = root.className === 'light' ? '' : 'light';
-      localStorage.setItem(key, root.className);
-    };
-  </script>
 </body>
 </html>
