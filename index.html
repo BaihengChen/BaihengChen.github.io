@@ -30,21 +30,21 @@
       overflow:hidden;
       box-shadow:0 8px 24px rgba(16,24,40,.06);
     }
-    .edu-bg::before{
-      content:"";
-      position:absolute; inset:0;
-      background-size:contain;
-      background-repeat:no-repeat;
-      background-position:center;
-      opacity:0.12;
-      filter:grayscale(20%);
+    .edu-bg::before {
+    content:"";
+    position:absolute; inset:0;
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-position:center;
+    opacity:0.25;
+    filter:grayscale(10%);  
     }
-    .edu-content{
-      position:relative; z-index:1;
-      background:rgba(255,255,255,.82);
-      backdrop-filter:saturate(110%) blur(2px);
-      margin:16px; padding:18px;
-      border-radius:12px;
+    .edu-content {
+    position:relative; z-index:1;
+    background:rgba(255,255,255,.92); 
+    backdrop-filter:saturate(110%) blur(2px);
+    margin:16px; padding:18px;
+    border-radius:12px;
     }
     .bg-uw::before{ background-image:url("photo/UW-STAT.png"); }
     .bg-nku::before{ background-image:url("photo/NKU.jpg"); }
